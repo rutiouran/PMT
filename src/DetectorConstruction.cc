@@ -136,19 +136,24 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                     0,
                     checkOverlaps);
 
-//	// Photocathode
-//  
-//	G4Tubs* photocathodeS
-//	    = new G4Tubs("Photocathode", 0.0*mm, 15.0/2.0*mm, 40.0/2.0*nm, 0.*deg, 360.*deg);
-//	
-//	G4LogicalVolume* photocathodeLV
-//	    = new G4LogicalVolume(photocathodeS, Bialkali, "Photocathode");
-//	
-//	G4VPhysicalVolume* photocathodePV
-//	    = new G4PVPlacement(
-//	                0,
-//	                G4ThreeVector(0, 0, ),
-//	                );
+	// Photocathode
+  
+	G4Tubs* photocathodeS
+	    = new G4Tubs("Photocathode", 0.0*mm, 15.0/2.0*mm, 40.0/2.0*nm, 0.*deg, 360.*deg);
+	
+	G4LogicalVolume* photocathodeLV
+	    = new G4LogicalVolume(photocathodeS, Bialkali, "Photocathode");
+	
+	G4VPhysicalVolume* photocathodePV
+	    = new G4PVPlacement(
+	                0,
+	                G4ThreeVector(0, 0, -42.98*mm),
+					photocathodeLV,
+					"Photocathode",
+					TubeLV,
+					false,
+					0,
+					checkOverlaps);
 
 	//
 	//always return the physical World
